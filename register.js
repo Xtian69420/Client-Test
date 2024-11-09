@@ -23,10 +23,14 @@ function RegisterButton(event) {
     }
 
     registerData.append('lastName', lastName);
-    registerData.append('IdImage', image);
 
+    if (image) {
+        registerData.append('IdImage', image);
+    }
+
+    // Debugging the FormData to ensure file is appended
     for (let [key, value] of registerData.entries()) {
-        console.log(`${key}: ${value}`);
+        console.log(`${key}:`, value);
     }
 
     fetch('https://betcha-booking-api-master.onrender.com/Register', {
@@ -40,7 +44,6 @@ function RegisterButton(event) {
     .catch(error => {
         console.error('Error during registration:', error);
         alert('Failed to register: ' + error.message);
-        console.log(error); 
     })
     .finally(() => {
         document.getElementById('loader').style.display = 'none';

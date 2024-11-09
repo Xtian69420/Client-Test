@@ -7,17 +7,17 @@ function DisplayID(event) {
     const userId = document.getElementById('display-id').value;
     console.log('userId:', userId);
 
-    fetch(`https://betcha-booking-api-master.onrender.com/User/${userId}`)
+    fetch(`https://betcha-booking-api-master.onrender.com/getUserIdImage/${userId}`)
         .then(response => response.json())
         .then(data => {
             console.log('data:', data); 
 
             if (data && data.data) {
                 console.log('data.data:', data.data); 
-                
-                if (data.data.IdImage && data.data.IdImage.filename) {
-                    const imageUrl = `/uploads/${data.data.IdImage.filename}`;
-                    const fullImageUrl = `https://betcha-booking-api-master.onrender.com${imageUrl}`;
+                console.log(data.data.IdImage.fileId);
+                if (data.data.IdImage && data.data.IdImage.fileId) {
+                    const fileId = data.data.IdImage.fileId;
+                    const fullImageUrl = `https://drive.google.com/thumbnail?id=${fileId}`;
                     console.log('Full Image URL:', fullImageUrl);
 
                     document.getElementById('image-link').src = fullImageUrl;

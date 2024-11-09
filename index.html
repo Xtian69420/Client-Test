@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Forms</title>
+</head>
+<body>
+
+  <h2>Login</h2>
+  <form id="login-form">
+    <label for="login-email">Email:</label>
+    <input type="email" id="login-email" name="email" required><br><br>
+    
+    <label for="login-password">Password:</label>
+    <input type="password" id="login-password" name="password" required><br><br>
+    
+    <button id="loginBtn">LOGIN</button>
+  </form>
+  <script src="login.js"></script>
+
+  <hr>
+
+  <h2>Register</h2>
+  <form id="register-form" enctype="multipart/form-data">
+    <label for="register-email">Email:</label>
+    <input type="email" id="register-email" name="email" required><br><br>
+    
+    <label for="register-password">Password:</label>
+    <input type="password" id="register-password" name="password" required><br><br>
+    
+    <label for="register-phone">Phone Number:</label>
+    <input type="text" id="register-phone" name="phoneNumber" required><br><br>
+    
+    <label for="register-firstname">First Name:</label>
+    <input type="text" id="register-firstname" name="firstName" required><br><br>
+    
+    <label for="register-middleinitial">Middle Initial:(OPTIONAL)</label>
+    <input type="text" id="register-middleinitial" name="middleInitial" ><br><br>
+    
+    <label for="register-lastname">Last Name:</label>
+    <input type="text" id="register-lastname" name="lastName" required><br><br>
+    
+    <label for="register-image">Image Upload:</label>
+    <input type="file" id="register-image" name="image" accept="image/*"><br><br>
+    
+    <button id="RegisterBtn">REGISTER</button>
+    <script src="register.js"></script>
+  </form>
+
+  <hr>
+
+  <h2>Edit User (!!!Enter a field u want to edit. Skip a field if u don't want to edit!!!)</h2>
+  <form id="edit-user-form">
+    <label for="userId">Enter userId(REQUIRED):</label>
+    <input type="text" id="userId" name="userId" required><br><br>
+
+    <label for="edit-email">Email:</label>
+    <input type="email" id="edit-email" name="email" ><br><br>
+    
+    <label for="edit-password">Password:</label>
+    <input type="password" id="edit-password" name="password" ><br><br>
+    
+    <label for="edit-phone">Phone Number:</label>
+    <input type="text" id="edit-phone" name="phoneNumber"><br><br>
+    
+    <label for="edit-firstname">First Name:</label>
+    <input type="text" id="edit-firstname" name="firstName" ><br><br>
+    
+    <label for="edit-middleinitial">Middle Initial:</label>
+    <input type="text" id="edit-middleinitial" name="middleInitial" ><br><br>
+    
+    <label for="edit-lastname">Last Name:</label>
+    <input type="text" id="edit-lastname" name="lastName"><br><br>
+    
+    <button id="EditBtn">EDIT</button>
+    <script src="updateUser.js"></script>
+  </form>
+
+  <hr>
+
+  <h2>Delete User</h2>
+  <form id="delete-user-form">
+    <label for="delete-userid">User ID:</label>
+    <input type="text" id="delete-userid" name="userId" required><br><br>
+    <button id="DelBtn">DELETE</button>
+    <script src="deleteUser.js"></script>
+  </form>
+
+  <hr>
+
+  <h2>Display User Info</h2>
+  <form id="display-user-form">
+    <label for="display-userid">User ID:</label>
+    <input type="text" id="display-userid" name="userId" required><br><br>
+    <button id="DisplayInfo">DISPLAY</button>
+    <script src="viewUserInfo.js"></script>
+  </form>
+
+  <div id="display-info">
+    <h3>User Info:</h3>
+    <p id="user-email"></p>
+    <p id="user-name"></p>
+    <p id="user-password"></p>
+    <p id="user-phone"></p>
+  </div>
+
+  <hr>
+
+  <h2>Display Image by ID</h2>
+  <form id="display-id-form">
+    <label for="display-id">User ID:</label>
+    <input type="text" id="display-id" name="userId" required><br><br>
+    <button id="DisplayId">DISPLAY</button>
+    <script src="viewIdOfUser.js"></script>
+  </form>
+
+  <div id="display-image">
+    <h3>Image:</h3>
+    <img id="image-link" src="" alt="User Image" style="max-width: 300px; display: none;">
+  </div>
+
+</body>
+</html>

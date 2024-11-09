@@ -47,10 +47,15 @@
   <title>User CRUD sample</title>
 </head>
 <body>
-  <div class="overlay" id="overlay"></div>
-  
-  <div class="loader" id="loader"></div>
+  <div id="overlay" class="overlay"></div>
+  <div id="loader" class="loader"></div>
 
+  <script src="checkServerStatus.js"></script>
+  <script>
+    window.onload = function() {
+        checkServerStatus(); 
+    };
+  </script>
   <h2>Login</h2>
   <form id="login-form">
     <label for="login-email">Email:</label>

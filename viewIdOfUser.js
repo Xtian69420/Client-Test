@@ -1,6 +1,9 @@
 function DisplayID(event) {
     event.preventDefault();
 
+    document.getElementById('loader').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
+
     const userId = document.getElementById('display-id').value;
     console.log('userId:', userId);
 
@@ -31,6 +34,10 @@ function DisplayID(event) {
         .catch(error => {
             console.error('Error during fetch:', error);
             alert('Failed to retrieve image.');
+        })
+        .finally(() => {
+            document.getElementById('loader').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
         });
 }
 

@@ -1,6 +1,10 @@
 function LoginButton(event) {
     event.preventDefault();
 
+    // Show the loader
+    document.getElementById('loader').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
+
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('login-password').value;
 
@@ -8,7 +12,6 @@ function LoginButton(event) {
         email: email,
         password: password
     };
-
     console.log('Data:', JSON.stringify(loginData)); 
 
     fetch('https://betcha-booking-api-master.onrender.com/Login', {
@@ -35,11 +38,16 @@ function LoginButton(event) {
     .then(data => {
         console.log('Login successful:', data);
         alert('Login successful: userId = ' + data.userId);
-        document.getElementById('_USERID').textContent = `User ID: ` + `${data.userId}`
+        document.getElementById('_USERID').textContent = `User ID: ` + `${data.userId}`;
     })
     .catch(error => {
         console.error('Error during fetch:', error);
         alert('Failed to login: ' + 'Incorrect Credentials');
+    })
+    .finally(() => {
+        // Hide the loader once the request is finished
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
     });
 }
 

@@ -1,6 +1,9 @@
 function UpdateButton(event) {
     event.preventDefault();
 
+    document.getElementById('loader').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
+
     const userId = document.getElementById('userId').value;
     const updatedData = {
         email: document.getElementById('edit-email').value,
@@ -25,6 +28,10 @@ function UpdateButton(event) {
     .catch(error => {
         console.error('Error during update:', error);
         alert('Failed to update user: ' + error.message);
+    })
+    .finally(() => {
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
     });
 }
 

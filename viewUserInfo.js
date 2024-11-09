@@ -1,6 +1,9 @@
 function DisplayInfo(event) {
     event.preventDefault();
 
+    document.getElementById('loader').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
+
     const userId = document.getElementById('display-userid').value;
 
     fetch(`https://betcha-booking-api-master.onrender.com/User/${userId}`)
@@ -23,6 +26,10 @@ function DisplayInfo(event) {
         .catch(error => {
             console.error('Error during display:', error);
             alert('Failed to display user info: ' + error.message);
+        })
+        .finally(() => {
+            document.getElementById('loader').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
         });
 }
 

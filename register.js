@@ -1,6 +1,9 @@
 function RegisterButton(event) {
     event.preventDefault();
 
+    document.getElementById('loader').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
+
     const email = document.getElementById('register-email').value;
     const password = document.getElementById('register-password').value;
     const phone = document.getElementById('register-phone').value;
@@ -38,6 +41,10 @@ function RegisterButton(event) {
         console.error('Error during registration:', error);
         alert('Failed to register: ' + error.message);
         console.log(error); 
+    })
+    .finally(() => {
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
     });
 }
 

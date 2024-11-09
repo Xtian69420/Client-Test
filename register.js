@@ -15,7 +15,6 @@ function RegisterButton(event) {
     registerData.append('phoneNumber', phone);
     registerData.append('firstName', firstName);
 
-    // Conditionally append middleInitial only if it's not null or empty
     if (middleInitial) {
         registerData.append('middleInitial', middleInitial);
     }
@@ -23,7 +22,6 @@ function RegisterButton(event) {
     registerData.append('lastName', lastName);
     registerData.append('IdImage', image);
 
-    // Log FormData for debugging
     for (let [key, value] of registerData.entries()) {
         console.log(`${key}: ${value}`);
     }
@@ -39,7 +37,7 @@ function RegisterButton(event) {
     .catch(error => {
         console.error('Error during registration:', error);
         alert('Failed to register: ' + error.message);
-        console.log(error); // To see the full error object
+        console.log(error); 
     });
 }
 

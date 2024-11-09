@@ -7,19 +7,14 @@ function DisplayInfo(event) {
         .then(response => response.json())
         .then(data => {
             if (data && data.data) {
-                const user = data.data; // Extract user data
-
-                // Display email
+                const user = data.data; 
                 document.getElementById('user-email').textContent = `Email: ${user.email}`;
 
-                // Display name (First and Last Name)
                 const fullName = `${user.firstName} ${user.lastName}`;
                 document.getElementById('user-name').textContent = `Name: ${fullName}`;
 
-                // Display password (typically you should not display passwords in plain text)
                 document.getElementById('user-password').textContent = `Password: ${user.password}`;
 
-                // Display phone number
                 document.getElementById('user-phone').textContent = `Phone Number: ${user.phoneNumber}`;
             } else {
                 alert('User not found or missing data.');

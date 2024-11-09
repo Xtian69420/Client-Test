@@ -9,7 +9,7 @@ function LoginButton(event) {
         password: password
     };
 
-    console.log('Data:', JSON.stringify(loginData));  // Log to verify form data
+    console.log('Data:', JSON.stringify(loginData)); 
 
     fetch('https://betcha-booking-api-master.onrender.com/Login', {
         method: 'POST',
@@ -19,7 +19,7 @@ function LoginButton(event) {
         body: JSON.stringify(loginData)  
     })
     .then(response => {
-        console.log('Response Status:', response.status);  // Check status code
+        console.log('Response Status:', response.status); 
         if (response.status === 400) {
             return response.json().then(errorData => {
                 throw new Error(errorData.message);
@@ -35,6 +35,7 @@ function LoginButton(event) {
     .then(data => {
         console.log('Login successful:', data);
         alert('Login successful: userId = ' + data.userId);
+        document.getElementById('_USERID').textContent = `User ID: ` + `${data.userId}`
     })
     .catch(error => {
         console.error('Error during fetch:', error);
